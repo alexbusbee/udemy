@@ -9,18 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var http_1 = require('@angular/http');
+var ionic_angular_1 = require('ionic-angular');
 var app_component_1 = require('./app.component');
-var todos_component_1 = require('./components/todos.component');
+var weather_1 = require('../pages/weather/weather');
+var settings_1 = require('../pages/settings/settings');
+var tabs_1 = require('../pages/tabs/tabs');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, todos_component_1.TodosComponent],
-            bootstrap: [app_component_1.AppComponent]
+            declarations: [
+                app_component_1.MyApp,
+                weather_1.WeatherPage,
+                settings_1.SettingsPage,
+                tabs_1.TabsPage
+            ],
+            imports: [
+                ionic_angular_1.IonicModule.forRoot(app_component_1.MyApp)
+            ],
+            bootstrap: [ionic_angular_1.IonicApp],
+            entryComponents: [
+                app_component_1.MyApp,
+                weather_1.WeatherPage,
+                settings_1.SettingsPage,
+                tabs_1.TabsPage
+            ],
+            providers: [{ provide: core_1.ErrorHandler, useClass: ionic_angular_1.IonicErrorHandler }]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

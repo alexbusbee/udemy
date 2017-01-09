@@ -10,36 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxjs/add/operator/map');
-var TodoService = (function () {
-    function TodoService(_http) {
-        this._http = _http;
+require('rxjs/Rx');
+var WorkoutService = (function () {
+    function WorkoutService(http) {
+        this.http = http;
+        this.apiKey = 'n5IGMM5M70yvnkPFTdNgv2_tVJyrCBW6';
+        this.workoutsUrl = 'https://api.mlab.com/api/1/databases/myworkouts/collections/workouts';
     }
-    TodoService.prototype.getTodos = function () {
-        return this._http.get('/api/v1/todos')
+    WorkoutService.prototype.getWorkouts = function () {
+        return this.http.get(this.workoutsUrl + '?apiKey=' + this.apiKey)
             .map(function (res) { return res.json(); });
     };
-    TodoService.prototype.saveTodo = function (todo) {
+    WorkoutService.prototype.addWorkout = function (workout) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this._http.post('/api/v1/todo', JSON.stringify(todo), { headers: headers })
+        return this.http.post(this.workoutsUrl + '?apiKey=' + this.apiKey, JSON.stringify(workout), { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    TodoService.prototype.updateTodo = function (todo) {
-        var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/json');
-        return this._http.put('/api/v1/todo/' + todo._id, JSON.stringify(todo), { headers: headers })
+    WorkoutService.prototype.deleteWorkout = function (workoutId) {
+        return this.http.delete(this.workoutsUrl + '/' + workoutId + '?apiKey=' + this.apiKey)
             .map(function (res) { return res.json(); });
     };
-    TodoService.prototype.deleteTodo = function (id) {
-        return this._http.delete('/api/v1/todo/' + id)
-            .map(function (res) { return res.json(); });
-    };
-    TodoService = __decorate([
+    WorkoutService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], TodoService);
-    return TodoService;
+    ], WorkoutService);
+    return WorkoutService;
 }());
-exports.TodoService = TodoService;
-//# sourceMappingURL=todo.service.js.map
+exports.WorkoutService = WorkoutService;
+//# sourceMappingURL=workout.service.js.map

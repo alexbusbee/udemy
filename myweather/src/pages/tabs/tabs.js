@@ -9,22 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var http_1 = require('@angular/http');
-var app_component_1 = require('./app.component');
-var todos_component_1 = require('./components/todos.component');
-var AppModule = (function () {
-    function AppModule() {
+var weather_1 = require('../weather/weather');
+var settings_1 = require('../settings/settings');
+var TabsPage = (function () {
+    function TabsPage() {
+        // this tells the tabs component which Pages
+        // should be each tab's root Page
+        this.tab1Root = weather_1.WeatherPage;
+        this.tab2Root = settings_1.SettingsPage;
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, todos_component_1.TodosComponent],
-            bootstrap: [app_component_1.AppComponent]
+    TabsPage = __decorate([
+        core_1.Component({
+            templateUrl: 'tabs.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], TabsPage);
+    return TabsPage;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.TabsPage = TabsPage;
+//# sourceMappingURL=tabs.js.map

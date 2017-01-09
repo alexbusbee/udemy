@@ -9,22 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var http_1 = require('@angular/http');
-var app_component_1 = require('./app.component');
-var todos_component_1 = require('./components/todos.component');
-var AppModule = (function () {
-    function AppModule() {
+var ionic_angular_1 = require('ionic-angular');
+var HomePage = (function () {
+    function HomePage(navCtrl) {
+        this.navCtrl = navCtrl;
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, todos_component_1.TodosComponent],
-            bootstrap: [app_component_1.AppComponent]
+    HomePage = __decorate([
+        core_1.Component({
+            selector: 'page-home',
+            templateUrl: 'home.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+        __metadata('design:paramtypes', [Object])
+    ], HomePage);
+    return HomePage;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.HomePage = HomePage;
+//# sourceMappingURL=home.js.map

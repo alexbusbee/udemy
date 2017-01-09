@@ -9,20 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var todo_service_1 = require('./services/todo.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var ionic_angular_1 = require('ionic-angular');
+var ionic_native_1 = require('ionic-native');
+var workout_service_1 = require('./services/workout.service');
+var tabs_1 = require('../pages/tabs/tabs');
+var MyApp = (function () {
+    function MyApp(platform) {
+        this.rootPage = tabs_1.TabsPage;
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            ionic_native_1.StatusBar.styleDefault();
+            ionic_native_1.Splashscreen.hide();
+        });
     }
-    AppComponent = __decorate([
+    MyApp = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            providers: [todo_service_1.TodoService]
+            templateUrl: 'app.html',
+            providers: [workout_service_1.WorkoutService]
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [Object])
+    ], MyApp);
+    return MyApp;
 }());
-exports.AppComponent = AppComponent;
+exports.MyApp = MyApp;
 //# sourceMappingURL=app.component.js.map
