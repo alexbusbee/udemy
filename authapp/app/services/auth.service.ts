@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { options } from '../auth.options';
 
 declare var Auth0Lock: any;
 
 @Injectable()
 export class Auth {
     // Confiugre Auth0
-    lock = new Auth0Lock('hS8t8HoayjcHrpWJyo6EGDuS7eWYebp2', 'alexbusbee.auth0.com', {});
+    lock = new Auth0Lock('hS8t8HoayjcHrpWJyo6EGDuS7eWYebp2', 'alexbusbee.auth0.com', options);
 
     constructor() {
         // Add callback for lock `authenticated` event
-        this.lock.on("authenticated", (authResult: any) => {
+        this.lock.on('authenticated', (authResult: any) => {
             this.lock.getProfile(authResult.idToken, function(error: any, profile: any) {
                 if (error) {
                     throw new Error(error);
@@ -20,7 +21,7 @@ export class Auth {
                 localStorage.setItem('profile', JSON.stringify(profile));
                 // Set Token
                 localStorage.setItem('id_token', authResult.idToken);
-            })
+            });
         });
     }
 
