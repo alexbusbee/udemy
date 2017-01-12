@@ -22,7 +22,7 @@
                     <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path}}">
                     <h4>{{ movie.title }}</h4>
                         <p>{{ movie.release_date }}</p>
-                        <p><a href="#" class="btn btn-default">View Details</a></p>
+                        <p><a routerLink="/movie/{{ movie.id }}" class="btn btn-default">View Details</a></p>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                     <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path}}">
                     <h4>{{ movie.title }}</h4>
                         <p>{{ movie.release_date }}</p>
-                        <p><a href="#" class="btn btn-default">View Details</a></p>
+                        <p><a routerLink="/movie/{{ movie.id }}" class="btn btn-default">View Details</a></p>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                     <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{ movie.poster_path}}">
                     <h4>{{ movie.title }}</h4>
                         <p>{{ movie.release_date }}</p>
-                        <p><a href="#" class="btn btn-default">View Details</a></p>
+                        <p><a routerLink="/movie/{{ movie.id }}" class="btn btn-default">View Details</a></p>
                 </div>
             </div>
         </div>
